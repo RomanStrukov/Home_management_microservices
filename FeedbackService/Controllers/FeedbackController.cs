@@ -16,25 +16,25 @@ namespace FeedbackService.Controllers
     {
         private RequestProcessor _requestProcessor = new RequestProcessor();
 
-        // GET api/Feedback
-        public IEnumerable<FeedbackViewModel> GetFeedbackViewModels()
+        // GET api/Feedback/userId
+        public IEnumerable<FeedbackViewModel> GetFeedbacksByUserId(int userId)
         {
-            return _requestProcessor.Get();
+            return _requestProcessor.GetFeedbacksByUserId(userId);
         }
 
-        // GET api/Feedback/5
-        public FeedbackViewModel GetFeedbackViewModel(int id)
-        {
-            try
-            {
-                return _requestProcessor.Get(id);
-            }
-            catch (HttpResponseException ex)
-            {
-                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+        //// GET api/Feedback/5
+        //public FeedbackViewModel GetFeedbackViewModel(int id)
+        //{
+        //    try
+        //    {
+        //        return _requestProcessor.Get(id);
+        //    }
+        //    catch (HttpResponseException ex)
+        //    {
+        //        throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
                 
-            }           
-        }
+        //    }           
+        //}
 
         // POST api/Feedback
         public HttpResponseMessage PostFeedbackViewModel(FeedbackViewModel feedbackviewmodel)

@@ -4,33 +4,40 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using FeedbackService;
 using FeedbackService.Models;
+using Gateway.Services;
 
 namespace Gateway.Controllers
 {
     public class FeedbackServiceController : ApiController
     {
+        private readonly FeedbackSrvc _feedback = new FeedbackSrvc();
+
         // GET api/feedbackservice
-        public IEnumerable<string> Get()
+        [HttpGet]
+        public IEnumerable<FeedbackViewModel> GetFeedbacksByUserId(int userId)
         {
-            return new string[] { "value1", "value2" };
+            return _feedback.GetFeedbacksByUserId(userId);
         }
 
-        // GET api/feedbackservice/5
-        public string Get(int id)
-        {
-            return "value";
-        }
+        //// GET api/feedbackservice/5
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
 
         // POST api/feedbackservice
-        public void Post([FromBody]string value)
+        [HttpPost]
+        public void SaveNewFeedback([FromBody]FeedbackViewModel fbVm)
         {
+            _feedback.SaveNewFeedback(fbVm);
         }
 
         // DELETE api/feedbackservice/5
-        public void Delete(int id)
+        [HttpDelete]
+        public void RemoveFeedback(int id)
         {
+            _feedback.RemoveFeedback(id);
         }
     }
 }

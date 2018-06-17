@@ -20,7 +20,5 @@ namespace FeedbackService.Models
     public class FeedbackDBContext : DbContext
     {
         public DbSet<Feedback> Feedbacks { get; set; }
-
-        public DbSet<FeedbackViewModel> FeedbackViewModels { get; set; }
     }
 }

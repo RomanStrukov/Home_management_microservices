@@ -23,12 +23,17 @@ namespace FeedbackService
             _modelBinder = new ModelBinder();
         }
 
-        public IEnumerable<FeedbackViewModel> Get()
+        public IEnumerable<FeedbackViewModel> GetFeedbacksByUserId(int userId)
         {
-            IEnumerable<Feedback> tmpFeedbacks = _db.Feedbacks.AsEnumerable();
-            List<FeedbackViewModel> feedbackViewModels = new List<FeedbackViewModel>();
+            List<Feedback> feedbacks = new List<Feedback>();
+            foreach (Feedback fb in _db.Feedbacks)
+            {
+                if (fb.UserId == userId)
+                    feedbacks.Add(fb);
+            }
 
-            foreach (var feedback in tmpFeedbacks)
+            List<FeedbackViewModel> feedbackViewModels = new List<FeedbackViewModel>();
+            foreach (var feedback in feedbacks)
             {
                 feedbackViewModels.Add(_modelBinder.EntityToViewModel(feedback));
             }

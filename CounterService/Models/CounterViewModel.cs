@@ -7,9 +7,9 @@ namespace CounterService.Models
 {
     public class CounterViewModel
     {
-        int Id { get; set; }
-        int val { get; set; }
+        public int Id { get; set; }
+        public int val { get; set; }
 
-        int UserId { get; set; }
+        public int UserId { get; set; }
     }
 }
