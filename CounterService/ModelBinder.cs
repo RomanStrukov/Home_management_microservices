@@ -13,7 +13,8 @@ namespace CounterService
             Counter cnt = new Counter();
 
             cnt.Id = cntVm.Id;
-            cnt.val = cntVm.val;
+            cnt.Val = cntVm.Val;
+            cnt.Date = cntVm.Date;
             cnt.UserId = cntVm.UserId;
 
             return cnt;
@@ -24,7 +25,8 @@ namespace CounterService
             CounterViewModel cntVm = new CounterViewModel();
 
             cntVm.Id = cnt.Id;
-            cntVm.val = cnt.val;
+            cntVm.Val = cnt.Val;
+            cntVm.Date = cnt.Date;
             cntVm.UserId = cnt.UserId;
 
             return cntVm;

@@ -13,14 +13,14 @@ namespace Gateway.Controllers
     {
         // GET api/billservice     
         [HttpGet]        
-        public IEnumerable<string> GetBills()
+        public IEnumerable<Bill> GetBillsByUserId()
         {
             return new string[] { "value1", "value2" };
         }
 
         // GET api/billservice/5
         [HttpGet]
-        public string GetBillById(int id)
+        public Bill GetBillByDate(DateTime dt)
         {
             return "value";
         }

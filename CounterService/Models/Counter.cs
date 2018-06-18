@@ -11,7 +11,9 @@ namespace CounterService.Models
     {
         public int Id { get; set; }
         [Required]
-        public int val { get; set; }
+        public int Val { get; set; }
+        [Required]
+        public DateTime Date { get; set; }
 
         public int UserId { get; set; }
     }

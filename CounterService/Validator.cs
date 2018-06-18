@@ -10,7 +10,7 @@ namespace CounterService
     {
         public bool Valid(Counter cnt)
         {
-            return cnt.val >= 0;
+            return cnt.Val >= 0;
         }
     }
 }

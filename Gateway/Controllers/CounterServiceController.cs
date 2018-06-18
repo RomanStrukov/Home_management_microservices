@@ -21,29 +21,25 @@ namespace Gateway.Controllers
             return _counter.GetCountersByUserId(userId);
         }
 
-        //// GET api/counterservice/5
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
-
         // POST api/counterservice
         [HttpPost]
-        public void AddCounter([FromBody]string value)
+        public void AddCounter([FromBody]CounterViewModel cntVm)
         {
-
+            _counter.AddCounter(cntVm);
         }
 
         // PUT api/counterservice/5
         [HttpPut]
-        public void UpdateCounterIndicators(int id, [FromBody]string value)
+        public void UpdateCounterIndicators(int id, [FromBody]CounterViewModel cntVm)
         {
+            _counter.UpdateCounterIndicators(id, cntVm);
         }
 
         // DELETE api/counterservice/5
         [HttpDelete]
         public void RemoveCounter(int id)
         {
+            _counter.RemoveCounter(id);
         }
     }
 }

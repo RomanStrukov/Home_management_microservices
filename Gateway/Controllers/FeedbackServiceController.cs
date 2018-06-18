@@ -20,12 +20,6 @@ namespace Gateway.Controllers
             return _feedback.GetFeedbacksByUserId(userId);
         }
 
-        //// GET api/feedbackservice/5
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
-
         // POST api/feedbackservice
         [HttpPost]
         public void SaveNewFeedback([FromBody]FeedbackViewModel fbVm)
