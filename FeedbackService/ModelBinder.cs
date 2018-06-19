@@ -15,7 +15,7 @@ namespace FeedbackService
 
             fb.Id = fbVm.Id;
             fb.Content = fbVm.Content;
-            fb.UserId = fbVm.Author.Id;
+            fb.UserId = fbVm.UserId;
 
             return fb;
         }
@@ -26,9 +26,7 @@ namespace FeedbackService
 
             fbVm.Id = fb.Id;
             fbVm.Content = fb.Content;
-            User u = new User();
-            u.Id = fb.UserId;
-            fbVm.Author = u;
+            fbVm.UserId = fb.UserId;
 
             return fbVm;
         }

@@ -13,7 +13,6 @@ namespace FeedbackService.Models
         [Required]
         public string Content { get; set; }
        
-        // Foreign Key
         public int UserId { get; set; }
     }
 

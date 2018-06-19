@@ -153,7 +153,6 @@
     <Compile Include="ModelBinder.cs" />
     <Compile Include="Models\Feedback.cs" />
     <Compile Include="Models\FeedbackViewModel.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestProcessor.cs" />
     <Compile Include="Validator.cs" />
