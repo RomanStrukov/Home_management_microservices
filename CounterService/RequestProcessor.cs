@@ -26,7 +26,7 @@ namespace CounterService
         public IEnumerable<CounterViewModel> GetCountersByUserId(int userId)
         {
             List<Counter> feedbacks = new List<Counter>();
-            foreach (Counter cnt in _db.Counters)
+            foreach (Counter cnt in _db.counters)
             {
                 if (cnt.UserId == userId)
                     feedbacks.Add(cnt);
@@ -42,7 +42,7 @@ namespace CounterService
 
         public CounterViewModel Get(int id)
         {
-            Counter cnt = _db.Counters.Find(id);
+            Counter cnt = _db.counters.Find(id);
             if (cnt == null)
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
@@ -58,7 +58,7 @@ namespace CounterService
             {
                 return false;
             }
-            _db.Counters.Add(cnt);
+            _db.counters.Add(cnt);
             _db.SaveChanges();
 
             return true;
@@ -66,7 +66,7 @@ namespace CounterService
 
         public CounterViewModel Delete(int id, out HttpStatusCode httpStatusCode)
         {
-            Counter cnt = _db.Counters.Find(id);
+            Counter cnt = _db.counters.Find(id);
             httpStatusCode = HttpStatusCode.OK;
 
             if (cnt == null)
@@ -75,7 +75,7 @@ namespace CounterService
                 return null;
             }
 
-            _db.Counters.Remove(cnt);
+            _db.counters.Remove(cnt);
 
             try
             {

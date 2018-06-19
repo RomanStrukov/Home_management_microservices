@@ -7,12 +7,11 @@ namespace BillService.Models
 {
     public class BillViewModel
     {
-        int Id { get; set; }
-        DateTime Date { get; set; }
-        IEnumerable<string> CounterNames { get; set; }
-        int Price { get; set; }
-        bool Status { get; set; }
-        int UserId { get; set; }
-        IEnumerable<int> CounterIds { get; set; }
+        public int Id { get; set; }
+        public DateTime Date { get; set; }
+        public List<string> CounterNames { get; set; }
+        public int Price { get; set; }
+        public bool Paid { get; set; }
+        public int UserId { get; set; }
     }
 }

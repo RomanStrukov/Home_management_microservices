@@ -9,27 +9,26 @@ namespace BillService.Models
     [Table ("tblBills")]
     public class Bill
     {
-        int Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
-        DateTime Date { get; set; }
+        public DateTime Date { get; set; }
 
-        IEnumerable<string> CounterNames { get; set; }
-
-        [Required]
-        int Price { get; set; }
+        public List<string> CounterNames { get; set; }
 
         [Required]
-        bool Status { get; set; }
+        public int Price { get; set; }
 
-        int UserId { get; set; }
+        [Required]
+        public bool Paid { get; set; }
 
-        IEnumerable<int> CounterIds { get; set; }
+        public int UserId { get; set; }
     }
 
     public class BillDBContext : DbContext
     {
-        public DbSet<Bill> Bills { get; set; }
+        public DbSet<Bill> bills { get; set; }
+        public DbSet<Tariff> tariffs { get; set; }
     }
 
 }

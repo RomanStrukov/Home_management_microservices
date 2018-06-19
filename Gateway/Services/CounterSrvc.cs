@@ -10,7 +10,7 @@ namespace Gateway.Services
 {
     public class CounterSrvc
     {
-        private readonly HttpClient _apiClient = new HttpClient();
+        private HttpClient _apiClient = new HttpClient();
 
         public IEnumerable<CounterViewModel> GetCountersByUserId(int userId)
         {            

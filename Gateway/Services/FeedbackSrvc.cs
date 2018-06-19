@@ -10,7 +10,7 @@ namespace Gateway.Services
 {
     public class FeedbackSrvc
     {
-        private readonly HttpClient _apiClient = new HttpClient();
+        private HttpClient _apiClient = new HttpClient();
    
         public IEnumerable<FeedbackViewModel> GetFeedbacksByUserId(int userId)
         {

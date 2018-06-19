@@ -11,7 +11,7 @@ namespace Gateway.Controllers
 {
     public class FeedbackServiceController : ApiController
     {
-        private readonly FeedbackSrvc _feedback = new FeedbackSrvc();
+        private FeedbackSrvc _feedback = new FeedbackSrvc();
 
         // GET api/feedbackservice
         [HttpGet]

@@ -26,7 +26,7 @@ namespace FeedbackService
         public IEnumerable<FeedbackViewModel> GetFeedbacksByUserId(int userId)
         {
             List<Feedback> feedbacks = new List<Feedback>();
-            foreach (Feedback fb in _db.Feedbacks)
+            foreach (Feedback fb in _db.feedbacks)
             {
                 if (fb.UserId == userId)
                     feedbacks.Add(fb);
@@ -42,7 +42,7 @@ namespace FeedbackService
 
         public FeedbackViewModel Get (int id)
         {
-            Feedback fb = _db.Feedbacks.Find(id);            
+            Feedback fb = _db.feedbacks.Find(id);            
             if (fb == null)
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound); 
@@ -58,7 +58,7 @@ namespace FeedbackService
             {
                 return false;
             }
-            _db.Feedbacks.Add(fb);
+            _db.feedbacks.Add(fb);
             _db.SaveChanges();
 
             return true;
@@ -66,7 +66,7 @@ namespace FeedbackService
 
         public FeedbackViewModel Delete(int id, out HttpStatusCode httpStatusCode)
         {
-            Feedback fb = _db.Feedbacks.Find(id);
+            Feedback fb = _db.feedbacks.Find(id);
             httpStatusCode = HttpStatusCode.OK;
 
             if (fb == null)
@@ -75,7 +75,7 @@ namespace FeedbackService
                 return null;
             }
 
-            _db.Feedbacks.Remove(fb);
+            _db.feedbacks.Remove(fb);
 
             try
             {

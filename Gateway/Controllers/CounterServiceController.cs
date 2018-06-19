@@ -12,7 +12,7 @@ namespace Gateway.Controllers
 {
     public class CounterServiceController : ApiController
     {
-        private readonly CounterSrvc _counter = new CounterSrvc();
+        private CounterSrvc _counter = new CounterSrvc();
 
         // GET api/counterservice/4
         [HttpGet]

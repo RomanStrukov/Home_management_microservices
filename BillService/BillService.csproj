@@ -150,11 +150,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\IRepository.cs" />
     <Compile Include="ModelBinder.cs" />
     <Compile Include="Models\Bill.cs" />
     <Compile Include="Models\BillViewModel.cs" />
+    <Compile Include="Models\Tariff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository.cs" />
+    <Compile Include="Infrastructure\SQLRepository.cs" />
     <Compile Include="RequestProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +180,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CounterService\CounterService.csproj">
+      <Project>{aca87f75-2854-4f8f-b593-32f35f9764fb}</Project>
+      <Name>CounterService</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
