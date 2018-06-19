@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Gateway.Services;
 using BillService;
 using BillService.Models;
 
@@ -11,36 +12,27 @@ namespace Gateway.Controllers
 {
     public class BillServiceController : ApiController
     {
-        // GET api/billservice     
-        [HttpGet]        
-        public IEnumerable<Bill> GetBillsByUserId()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        private BillSrvc _bill = new BillSrvc();
 
-        // GET api/billservice/5
+        // GET api/bill
         [HttpGet]
-        public Bill GetBillByDate(DateTime dt)
+        public IEnumerable<BillViewModel> GetBillsByUserId(int userId)
         {
-            return "value";
+            return _bill.GetBillsByUserId(userId);
         }
 
-        // POST api/billservice
-        [HttpPost]
-        public void SaveNewBill([FromBody]string value)
+        // GET api/bill/5
+        [HttpGet]
+        public BillViewModel GetBillByDate(int userId, DateTime dt)
         {
+            return _bill.GetBillByDate(userId, dt);
         }
 
-        // PUT api/billservice/5
-        [HttpPut]
-        public void UpdateBill(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/billservice/5
+        // DELETE api/bill/5
         [HttpDelete]
         public void RemoveBill(int id)
         {
+            _bill.RemoveBill(id);
         }
     }
 }
